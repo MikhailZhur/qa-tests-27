@@ -1,3 +1,5 @@
+package avtotests;
+
 import org.junit.jupiter.api.*;
 
 public class SimpleJUnitTest {
