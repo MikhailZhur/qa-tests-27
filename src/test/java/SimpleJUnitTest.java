@@ -1,15 +1,23 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 public class SimpleJUnitTest {
 
     int result;
 
+    @BeforeAll
+    static void beforeAll(){
+        System.out.println("BeforeAll");
+    }
+
     @BeforeEach
-    void BeforeEach(){
+    void beforeEach(){
         System.out.println("BeforeEach");
         result=getResult();
+    }
+
+    @AfterEach
+    void afterEach(){
+        System.out.println("afterEach\n");
     }
 
     @Test
