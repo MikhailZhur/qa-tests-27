@@ -1,23 +1,26 @@
 package avtotests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selectors;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxTests {
 
     @BeforeAll
     static void beforeAll(){
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl= "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager"; // не ждет полной загрузки страницы, ожидает загрузки DOM
-        Configuration.holdBrowserOpen = true; // браузер не закрывается
+    //    Configuration.browserSize = "1920x1080";
+      //  Configuration.baseUrl= "https://demoqa.com";
+      //  Configuration.pageLoadStrategy = "eager";
+       // Configuration.holdBrowserOpen = true;
     }
 
+    @Disabled
     @Test
     void fillFormtest(){
         open("/text-box");
@@ -33,4 +36,13 @@ public class TextBoxTests {
         $("#output #permanentAddress").shouldHave(text("street"));
 
     }
+
+    @Test
+    void visibleCooliePopup(){
+        open("https://www.otpbank.ru/");
+        $(withText("РџСЂРѕРґРѕР»Р¶Р°СЏ РїСЂРѕСЃРјРѕС‚СЂ СЃР°Р№С‚Р°")).shouldBe(visible);
+        $("a strong").click();
+        $(byText("Р—Р°С‰РёС‚Р° РїРµСЂСЃРѕРЅР°Р»СЊРЅС‹С… РґР°РЅРЅС‹С…")).shouldBe(visible);
+    }
+
 }
