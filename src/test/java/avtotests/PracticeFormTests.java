@@ -13,6 +13,7 @@ public class PracticeFormTests {
     static void BeforeAll(){
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
+        Configuration.holdBrowserOpen = true;
     }
 
     @Test
@@ -23,8 +24,22 @@ public class PracticeFormTests {
         $("#userEmail").setValue("miha99_66@mail.ru");
         $(byText("Male")).click();
         $("#userNumber").setValue("+79126298333");
+
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").click();
+        $("[value='4']").click();
+        $(".react-datepicker__year-select").click();
+        $("[value='1988']").click();
+        $(".react-datepicker__day.react-datepicker__day--027").click();
+
+        $("#subjectsInput").setValue("Maths").pressEnter();
+        $(byText("Sports")).click();
+        $(byText("Reading")).click();
+        $(byText("Music")).click();
+
+
+
+
 
 
     }
