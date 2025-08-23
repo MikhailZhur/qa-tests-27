@@ -23,6 +23,8 @@ public class PracticeFormTests {
         $("#userEmail").setValue("miha99_66@mail.ru");
         $(byText("Male")).click();
         $("#userNumber").setValue("+79126298333");
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").click();
 
 
     }
