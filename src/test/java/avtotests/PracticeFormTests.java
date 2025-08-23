@@ -4,6 +4,9 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -14,6 +17,7 @@ public class PracticeFormTests {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = true;
+        Configuration.browserSize = "1920x1080";
     }
 
     @Test
@@ -23,7 +27,7 @@ public class PracticeFormTests {
         $("#lastName").setValue("Zhuravlev");
         $("#userEmail").setValue("miha99_66@mail.ru");
         $(byText("Male")).click();
-        $("#userNumber").setValue("+79126298333");
+        $("#userNumber").setValue("9126298333");
 
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").click();
@@ -36,6 +40,32 @@ public class PracticeFormTests {
         $(byText("Sports")).click();
         $(byText("Reading")).click();
         $(byText("Music")).click();
+
+        $("#uploadPicture").uploadFile(new File("src/test/resources/Crazy_Frog.jpg"));
+
+        $("#currentAddress").setValue("Dubrovka");
+
+        $("#state").click();
+        $(byText("NCR")).click();
+
+        $("#city").click();
+        $(byText("Delhi")).click();
+
+        $("#submit").click();
+
+        $(".table-responsive").shouldHave(text("Mikhail Zhuravlev"),
+                text("miha99_66@mail.ru"),
+                text("Male"),
+                text("9126298333"),
+                text("27 May,1988"),
+                text("Maths"),
+                text("Sports, Reading, Music"),
+                text("Crazy_Frog.jpg"),
+                text("Dubrovka"),
+                text("NCR Delhi"));
+
+
+
 
 
 
