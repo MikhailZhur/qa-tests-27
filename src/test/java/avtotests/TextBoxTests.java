@@ -13,16 +13,16 @@ import static com.codeborne.selenide.Selenide.*;
 public class TextBoxTests {
 
     @BeforeAll
-    static void beforeAll(){
-    //    Configuration.browserSize = "1920x1080";
-      //  Configuration.baseUrl= "https://demoqa.com";
-      //  Configuration.pageLoadStrategy = "eager";
-       // Configuration.holdBrowserOpen = true;
+    static void beforeAll() {
+        //    Configuration.browserSize = "1920x1080";
+        //  Configuration.baseUrl= "https://demoqa.com";
+        //  Configuration.pageLoadStrategy = "eager";
+        // Configuration.holdBrowserOpen = true;
     }
 
     @Disabled
     @Test
-    void fillFormtest(){
+    void fillFormtest() {
         open("/text-box");
         $("#userName").setValue("Mikhail");
         $("#userEmail").setValue("miha99_66@mail.ru");
@@ -38,7 +38,7 @@ public class TextBoxTests {
     }
 
     @Test
-    void visibleCooliePopup(){
+    void visibleCooliePopup() {
         open("https://www.otpbank.ru/");
         $(withText("Продолжая просмотр сайта")).shouldBe(visible);
         $("a strong").click();
