@@ -1,19 +1,22 @@
-package avtotests;
+package tests;
 
+import components.RegistrationPage;
 import org.junit.jupiter.api.Test;
+import testData.TestData;
 
 
 public class PracticeFormTests extends BaseTest {
 
 
     RegistrationPage registrationPage = new RegistrationPage();
+    TestData testData = new TestData();
 
     @Test
     void successfulFillPracticeForm() {
 
         registrationPage.openPage()
-                .setFirstName("Mikhail")
-                .setLastName("Zhuravlev")
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
                 .setUserEmail("miha99_66@mail.ru")
                 .choseUserGender("Male")
                 .setUserNumber("9126298333")
@@ -28,7 +31,7 @@ public class PracticeFormTests extends BaseTest {
 
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name", "Mikhail Zhuravlev")
+                .verifyResult("Student Name", testData.firstName)
                 .verifyResult("Student Email", "miha99_66@mail.ru")
                 .verifyResult("Gender", "Male")
                 .verifyResult("Mobile", "9126298333")

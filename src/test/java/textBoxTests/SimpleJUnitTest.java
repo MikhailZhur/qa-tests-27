@@ -1,4 +1,4 @@
-package avtotests;
+package textBoxTests;
 
 import org.junit.jupiter.api.*;
 

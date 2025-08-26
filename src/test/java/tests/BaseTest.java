@@ -1,4 +1,4 @@
-package avtotests;
+package tests;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,7 +9,7 @@ public class BaseTest {
     static void BeforeAll() {
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.browserSize = "1920x1080";
+ //       Configuration.browserSize = "1920x1080";
         Configuration.holdBrowserOpen = true;
     }
 }

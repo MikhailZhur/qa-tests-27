@@ -1,4 +1,4 @@
-package avtotests;
+package components;
 
 import com.codeborne.selenide.SelenideElement;
 
