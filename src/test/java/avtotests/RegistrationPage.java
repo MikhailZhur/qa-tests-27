@@ -106,5 +106,10 @@ public class RegistrationPage {
         return this;
     }
 
+    public RegistrationPage verifyResultsModalNotVisble(){
+        registrationResultsModal.verifyModalNotVisble();
+        return this;
+    }
+
 
 }
