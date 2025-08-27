@@ -17,35 +17,35 @@ public class PracticeFormTests extends BaseTest {
         registrationPage.openPage()
                 .setFirstName(testData.firstName)
                 .setLastName(testData.lastName)
-                .setUserEmail("miha99_66@mail.ru")
-                .choseUserGender("Male")
-                .setUserNumber("9126298333")
-                .chooseDateBirthday("27", "May", "1988")
+                .setUserEmail(testData.userEmail)
+                .choseUserGender(testData.gender)
+                .setUserNumber(testData.userNumber)
+                .chooseDateBirthday(testData.birthDay, testData.birthMonth, testData.birthYear)
                 .setSubjects("Maths")
                 .chooseHobbies()
                 .uploadFile()
-                .setCurrentAdress("Dubrovka")
+                .setCurrentAdress(testData.streetAddress)
                 .setState("NCR")
                 .setCity()
                 .clickSubmit();
 
 
         registrationPage.verifyResultsModalAppears()
-                .verifyResult("Student Name", testData.firstName)
-                .verifyResult("Student Email", "miha99_66@mail.ru")
-                .verifyResult("Gender", "Male")
-                .verifyResult("Mobile", "9126298333")
-                .verifyResult("Date of Birth", "27 May,1988")
+                .verifyResult("Student Name", testData.firstName + " " + testData.lastName)
+                .verifyResult("Student Email", testData.userEmail)
+                .verifyResult("Gender", testData.gender)
+                .verifyResult("Mobile", testData.userNumber)
+                .verifyResult("Date of Birth",  String.format("%s %s,%s",testData.birthDay,testData.birthMonth,testData.birthYear))
                 .verifyResult("Subjects", "Maths")
                 .verifyResult("Hobbies", "Sports, Reading, Music")
                 .verifyResult("Picture", "Crazy_Frog.jpg")
-                .verifyResult("Address", "Dubrovka")
+                .verifyResult("Address", testData.streetAddress)
                 .verifyResult("State and City", "NCR Gurgaon")
         ;
     }
 
     @Test
-    void firstNameIsRequired(){
+    void firstNameIsRequired() {
         registrationPage.openPage()
                 .setLastName("Zhuravlev")
                 .setUserEmail("miha99_66@mail.ru")
