@@ -1,6 +1,8 @@
 package tests;
 
 import components.RegistrationPage;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import testData.TestData;
 
@@ -12,6 +14,7 @@ public class PracticeFormTests extends BaseTest {
     TestData testData = new TestData();
 
     @Test
+    @Tag("SMOKE")
     void successfulFillPracticeForm() {
 
         registrationPage.openPage()
@@ -43,7 +46,7 @@ public class PracticeFormTests extends BaseTest {
                 .verifyResult("State and City", "NCR Gurgaon")
         ;
     }
-
+    @Disabled("swffwfwfe")
     @Test
     void firstNameIsRequired() {
         registrationPage.openPage()
