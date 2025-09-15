@@ -2,6 +2,7 @@ package textBoxTests;
 
 import org.junit.jupiter.api.*;
 
+@Tag("simple")
 public class SimpleJUnitTest {
 
     int result;

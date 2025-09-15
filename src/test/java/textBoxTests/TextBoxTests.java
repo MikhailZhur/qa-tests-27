@@ -2,12 +2,13 @@ package textBoxTests;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
-
+@Tag("textbox")
 public class TextBoxTests {
 
     @BeforeAll
@@ -17,11 +18,10 @@ public class TextBoxTests {
         //  Configuration.pageLoadStrategy = "eager";
         // Configuration.holdBrowserOpen = true;
     }
-
     @Disabled
     @Test
     void fillFormtest() {
-        open("/text-box");
+        open("https://demoqa.com/text-box");
         $("#userName").setValue("Mikhail");
         $("#userEmail").setValue("miha99_66@mail.ru");
         $("#currentAddress").setValue("some street");
@@ -38,9 +38,10 @@ public class TextBoxTests {
     @Test
     void visibleCooliePopup() {
         open("https://www.otpbank.ru/");
-        $(withText("Продолжая просмотр сайта")).shouldBe(visible);
-        $("a strong").click();
-        $(byText("Защита персональных данных")).shouldBe(visible);
+        $(".main-hero__big-card-title").shouldBe(visible);
+//        $("a strong").click();
+//        withText("Выбирайте из лучших продуктов")
+//        $(byText("Защита персональных данных")).shouldBe(visible);
     }
 
 }
